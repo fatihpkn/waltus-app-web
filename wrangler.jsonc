@@ -10,7 +10,4 @@
   "vars": {
     "PUBLIC_OPENPANEL_CLIENT_ID": "",
   },
-  "observability": {
-    "enabled": true,
-  },
 }
