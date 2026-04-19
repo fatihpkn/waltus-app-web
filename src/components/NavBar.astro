@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <nav class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/20 dark:border-white/5">
@@ -20,9 +21,15 @@
         aria-label="Toggle dark/light mode"
         class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors cursor-pointer"
       >
-        <span id="theme-icon" class="material-symbols-outlined text-[20px]">light_mode</span>
+        <Icon id="theme-icon" name="material-symbols:light-mode-outline" class="w-5 h-5" />
+        <Icon id="theme-icon-dark" name="material-symbols:dark-mode-outline" class="w-5 h-5 hidden" />
       </button>
-      <button class="px-6 py-2.5 rounded-full primary-gradient text-white font-semibold text-sm hover:opacity-90 transition-opacity cursor-pointer">
+      <button
+        class="px-6 py-2.5 rounded-full primary-gradient text-white font-semibold text-sm hover:opacity-90 transition-opacity cursor-pointer"
+        data-track="cta_clicked"
+        data-location="navbar"
+        data-cta="get-started"
+      >
         Get Started
       </button>
     </div>
@@ -32,15 +39,17 @@
 <script>
   (function () {
     var btn = document.getElementById('theme-toggle');
-    var icon = document.getElementById('theme-icon');
+    var iconLight = document.getElementById('theme-icon');
+    var iconDark = document.getElementById('theme-icon-dark');
 
     function isDark() {
       return document.documentElement.classList.contains('dark');
     }
 
     function updateIcon() {
-      if (icon) {
-        icon.textContent = isDark() ? 'dark_mode' : 'light_mode';
+      if (iconLight && iconDark) {
+        iconLight.classList.toggle('hidden', isDark());
+        iconDark.classList.toggle('hidden', !isDark());
       }
     }
 

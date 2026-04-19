@@ -76,3 +76,24 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro -- --help`         | Get help using the Astro CLI                     |
 | `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
 | `npm wrangler tail`               | View real-time logs for all Workers              |
+
+## Analytics
+
+OpenPanel is wired in **client-only mode**. It uses a public client ID and does **not** require a secret.
+
+Set this environment variable before running the Astro build:
+
+```bash
+PUBLIC_OPENPANEL_CLIENT_ID=your_client_id npm run build
+```
+
+For local development, you can also place it in a `.env` file:
+
+```bash
+PUBLIC_OPENPANEL_CLIENT_ID=your_client_id
+```
+
+The first rollout tracks:
+
+- Automatic OpenPanel tracking for page views, outgoing links, and default browser/device/referrer attributes
+- Manual `cta_clicked` events for the main CTA buttons in the navbar, hero section, and final CTA section
