@@ -8,6 +8,6 @@
     "binding": "ASSETS",
   },
   "vars": {
-    "PUBLIC_OPENPANEL_CLIENT_ID": "",
+    "PUBLIC_OPENPANEL_CLIENT_ID": "1a9a4805-ba73-4842-92d7-5ee2c6bbc270",
   },
 }
