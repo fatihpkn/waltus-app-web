@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 const testimonials = [
   {
     quote: "Waltus is the first financial tool that doesn't make me feel guilty. It just gives me the facts in a way that feels peaceful.",
@@ -28,13 +29,13 @@ const testimonials = [
         <div class="p-10 bg-surface-container-low rounded-3xl space-y-8 dark:border dark:border-white/5">
           <div class="flex gap-1 text-primary dark:text-indigo-400">
             {Array.from({ length: 5 }).map(() => (
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+              <Icon name="material-symbols:star" class="w-5 h-5" />
             ))}
           </div>
           <p class="text-xl font-medium leading-relaxed italic text-on-surface">"{t.quote}"</p>
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-full bg-slate-300 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
-              <span class="material-symbols-outlined text-slate-500 dark:text-slate-400">person</span>
+              <Icon name="material-symbols:person-outline" class="w-6 h-6 text-slate-500 dark:text-slate-400" />
             </div>
             <div>
               <div class="font-bold text-on-surface">{t.name}</div>

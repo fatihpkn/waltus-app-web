@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <section class="py-32 px-6 bg-surface">
@@ -8,12 +9,12 @@
       <div class="rounded-2xl overflow-hidden editorial-shadow bg-surface-container-lowest dark:border dark:border-white/5">
         <div class="p-8 border-b border-surface-container-low dark:border-white/5 flex items-center justify-between">
           <h4 class="font-bold text-on-surface">Deterministic Clarity</h4>
-          <span class="material-symbols-outlined text-primary dark:text-indigo-400">verified</span>
+          <Icon name="material-symbols:verified-outline" class="w-6 h-6 text-primary dark:text-indigo-400" />
         </div>
         <div class="p-12 space-y-10">
           <div class="flex gap-6">
             <div class="w-12 h-12 shrink-0 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
-              <span class="material-symbols-outlined text-primary dark:text-indigo-400">question_mark</span>
+              <Icon name="material-symbols:question-mark" class="w-6 h-6 text-primary dark:text-indigo-400" />
             </div>
             <div class="space-y-2">
               <div class="text-lg font-bold text-on-surface">"Why did my balance change?"</div>
@@ -51,14 +52,14 @@
       </p>
       <ul class="space-y-4 list-none p-0 m-0">
         <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-primary dark:text-indigo-400 mt-1">check_circle</span>
+          <Icon name="material-symbols:check-circle-outline" class="w-6 h-6 text-primary dark:text-indigo-400 mt-1 shrink-0" />
           <div>
             <strong class="block text-on-surface">Auto-Labeling</strong>
             <span class="text-on-surface-variant">We decode vendor IDs into recognizable business names.</span>
           </div>
         </li>
         <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-primary dark:text-indigo-400 mt-1">check_circle</span>
+          <Icon name="material-symbols:check-circle-outline" class="w-6 h-6 text-primary dark:text-indigo-400 mt-1 shrink-0" />
           <div>
             <strong class="block text-on-surface">Delta Analysis</strong>
             <span class="text-on-surface-variant">Instantly see what changed since you last opened the app.</span>

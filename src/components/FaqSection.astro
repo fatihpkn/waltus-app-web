@@ -1,19 +1,20 @@
 ---
+import { Icon } from 'astro-icon/components';
 const faqs = [
   {
-    icon: 'security',
+    icon: 'material-symbols:security',
     question: 'Is my data secure with Waltus?',
     answer:
       'We use 256-bit AES encryption and multi-factor authentication for every interaction. Your security is our absolute priority, handled with institutional-grade rigor.',
   },
   {
-    icon: 'account_balance',
+    icon: 'material-symbols:account-balance-outline',
     question: 'Can I connect all my bank accounts?',
     answer:
       'Yes. Waltus aggregates data from over 12,000 financial institutions globally, providing a single source of truth for your entire net worth.',
   },
   {
-    icon: 'payments',
+    icon: 'material-symbols:payments-outline',
     question: 'Are there any hidden fees?',
     answer:
       'No. We believe in total clarity. Our pricing is transparent and fixed, with no hidden transactional costs or surprise renewals.',
@@ -29,7 +30,7 @@ const faqs = [
     <div class="space-y-4">
       {faqs.map((faq) => (
         <div class="bg-surface-container-lowest rounded-2xl p-6 editorial-shadow flex items-start gap-4 dark:border dark:border-white/5">
-          <span class="material-symbols-outlined text-primary dark:text-indigo-400">{faq.icon}</span>
+          <Icon name={faq.icon} class="w-6 h-6 text-primary dark:text-indigo-400 shrink-0" />
           <div>
             <h4 class="font-bold mb-2 text-on-surface">{faq.question}</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed">{faq.answer}</p>
