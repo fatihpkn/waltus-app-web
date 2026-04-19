@@ -81,19 +81,19 @@ All commands are run from the root of the project, from a terminal:
 
 OpenPanel is wired in **client-only mode**. It uses a public client ID and does **not** require a secret.
 
-Set this environment variable before running the Astro build:
+The integration targets the self-hosted OpenPanel instance at:
 
-```bash
-PUBLIC_OPENPANEL_CLIENT_ID=your_client_id pnpm build
+```text
+https://w-openpanel.waltusapp.com
 ```
 
-For local development, you can also place it in a `.env` file:
+It is initialized from the root layout with the Astro SDK (`@openpanel/astro`) and uses the existing Wrangler/Cloudflare `PUBLIC_OPENPANEL_CLIENT_ID` variable.
+
+For local development with Wrangler/Cloudflare bindings, put it in `.dev.vars`:
 
 ```bash
 PUBLIC_OPENPANEL_CLIENT_ID=your_client_id
 ```
-
-For Cloudflare-managed deployments, you can set `PUBLIC_OPENPANEL_CLIENT_ID` in the Cloudflare dashboard. `wrangler.json` uses `"keep_vars": true`, so deploys preserve dashboard-defined variables instead of treating the config file as the only source of truth.
 
 The first rollout tracks:
 
