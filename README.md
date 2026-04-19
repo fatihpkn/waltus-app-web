@@ -1,44 +1,66 @@
-# Astro Starter Kit: Blog
+# Waltus — Marketing Website
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+The official marketing and landing page for **Waltus**, a fintech app built around *Finance with total clarity*. The site is designed following the "Financial Sanctuary" design system — high-end editorial minimalism with generous negative space, confident typography, and a single deep-Indigo accent color.
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## Design Reference
 
-<!-- dash-content-start -->
+Full design system documentation lives in [`docs/stitch_waltus_marketing_website_design/DESIGN.md`](./docs/stitch_waltus_marketing_website_design/DESIGN.md).
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+Dark mode palette and visual adjustments are documented in [`docs/stitch_waltus_marketing_website_design-dark-mode/DESIGN.md`](./docs/stitch_waltus_marketing_website_design-dark-mode/DESIGN.md).
 
-Features:
+## Tech Stack
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
+| Tool | Purpose |
+|---|---|
+| [Astro](https://astro.build/) | Static site framework |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first CSS via `@tailwindcss/vite` |
+| [Cloudflare Workers](https://workers.cloudflare.com/) | Static asset hosting via `@astrojs/cloudflare` |
+| [Google Fonts — Manrope](https://fonts.google.com/specimen/Manrope) | Display & headline typography |
+| [Google Fonts — Inter](https://fonts.google.com/specimen/Inter) | Body & label typography |
+| [Material Symbols Outlined](https://fonts.google.com/icons) | Icon system |
 
-<!-- dash-content-end -->
+## Dark & Light Mode
 
-## Getting Started
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
-
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
-```
-
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
+Theming follows the OS/browser color scheme automatically via `prefers-color-scheme`. No JavaScript or user-facing toggle is needed. All Tailwind `dark:` variants activate when the system is in dark mode. There is no manual theme selection in the current release — the architecture supports adding one in the future by switching to `darkMode: "class"`.
 
 ## 🚀 Project Structure
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
+```
+waltus-app-web/
+├── docs/
+│   ├── stitch_waltus_marketing_website_design/
+│   │   ├── DESIGN.md          ← Full design system documentation
+│   │   ├── code.html          ← Light mode reference implementation
+│   │   └── screen.png
+│   └── stitch_waltus_marketing_website_design-dark-mode/
+│       ├── DESIGN.md          ← Dark mode palette & adjustments
+│       ├── code.html          ← Dark mode reference implementation
+│       └── screen.png
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   ├── BaseHead.astro         ← Global <head> meta, fonts
+│   │   ├── NavBar.astro           ← Fixed glassmorphism navigation
+│   │   ├── Footer.astro           ← 4-column footer
+│   │   ├── HeroSection.astro      ← Headline + phone mockup
+│   │   ├── SerenitySection.astro  ← Editorial stats block
+│   │   ├── NarrativeSection.astro ← "Every penny accounted for"
+│   │   ├── WalletSection.astro    ← 3-column feature cards
+│   │   ├── TestimonialsSection.astro ← Social proof
+│   │   ├── FaqSection.astro       ← Common questions
+│   │   └── CtaSection.astro       ← Final call-to-action
+│   ├── layouts/
+│   │   └── Layout.astro           ← Base page layout
+│   ├── pages/
+│   │   └── index.astro            ← Landing page (composes all sections)
+│   ├── styles/
+│   │   └── global.css             ← Tailwind import + design tokens + custom utilities
+│   └── consts.ts                  ← Site title & description
+├── astro.config.mjs
+├── tailwind.config.mjs            ← (Tailwind v4 config lives in global.css via @theme)
+└── wrangler.json
+```
 
 ## 🧞 Commands
 
@@ -54,11 +76,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro -- --help`         | Get help using the Astro CLI                     |
 | `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
 | `npm wrangler tail`               | View real-time logs for all Workers              |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).

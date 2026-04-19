@@ -1,0 +1,48 @@
+---
+const testimonials = [
+  {
+    quote: "Waltus is the first financial tool that doesn't make me feel guilty. It just gives me the facts in a way that feels peaceful.",
+    name: 'Julian Vane',
+    role: 'Architect',
+  },
+  {
+    quote: 'The deterministic clarity feature is a game-changer. I finally understand exactly why my balance fluctuates each week.',
+    name: 'Elena Rossi',
+    role: 'Creative Director',
+  },
+  {
+    quote: 'It feels more like an editorial piece than a banking app. The typography and whitespace make managing finances enjoyable.',
+    name: 'Marcus Thorne',
+    role: 'Financial Advisor',
+  },
+];
+---
+
+<section class="py-32 px-6 bg-surface">
+  <div class="max-w-7xl mx-auto space-y-20">
+    <div class="text-center">
+      <h2 class="text-4xl font-extrabold tracking-tight text-on-surface">Trusted Presence</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((t) => (
+        <div class="p-10 bg-surface-container-low rounded-3xl space-y-8 dark:border dark:border-white/5">
+          <div class="flex gap-1 text-primary dark:text-indigo-400">
+            {Array.from({ length: 5 }).map(() => (
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            ))}
+          </div>
+          <p class="text-xl font-medium leading-relaxed italic text-on-surface">"{t.quote}"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-slate-300 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
+              <span class="material-symbols-outlined text-slate-500 dark:text-slate-400">person</span>
+            </div>
+            <div>
+              <div class="font-bold text-on-surface">{t.name}</div>
+              <div class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold">{t.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
