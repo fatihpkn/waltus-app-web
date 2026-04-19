@@ -86,4 +86,81 @@ In this system, depth is felt, not seen. We favor **Tonal Layering** over struct
 *   **Don't** use generic icon packs. Ensure icons have a consistent 1.5px or 2px stroke weight to match the Inter typography.
 
 ---
+
+## 7. Tech Stack & Tooling
+
+*   **Framework:** [Astro](https://astro.build/) — static site generation with component-level islands.
+*   **CSS:** [Tailwind CSS](https://tailwindcss.com/) via `@astrojs/tailwind`. All design tokens above are registered as custom Tailwind color extensions.
+*   **Dark Mode:** `darkMode: "media"` — the site automatically follows the OS/browser `prefers-color-scheme` setting. No user-facing toggle is required for the current release; the architecture supports adding one later.
+*   **Fonts (Google Fonts):**
+    *   `Manrope` (weights 400–800) — Display & Headlines.
+    *   `Inter` (weights 300–600) — Body, Labels, UI copy.
+*   **Icons:** [Material Symbols Outlined](https://fonts.google.com/icons) — loaded via Google Fonts CSS. All icons use `font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24` as the default.
+*   **Deployment:** Cloudflare Workers (static assets) via `@astrojs/cloudflare` adapter.
+
+---
+
+## 8. Dark Mode Token Mapping
+
+The table below maps each light-mode token to its dark-mode counterpart, sourced from `docs/stitch_waltus_marketing_website_design-dark-mode/code.html`.
+
+| Token | Light (`#`) | Dark (`#`) |
+|---|---|---|
+| `background` | `#f8f9fb` | `#0b0d0e` |
+| `surface` | `#f8f9fb` | `#0b0d0e` |
+| `surface-dim` | `#d9dadc` | `#0b0d0e` |
+| `surface-bright` | `#f8f9fb` | `#343a3d` |
+| `surface-container-lowest` | `#ffffff` | `#060809` |
+| `surface-container-low` | `#f2f4f6` | `#191c1e` |
+| `surface-container` | `#edeef0` | `#1e2123` |
+| `surface-container-high` | `#e7e8ea` | `#282a2d` |
+| `surface-container-highest` | `#e1e2e4` | `#323537` |
+| `surface-variant` | `#e1e2e4` | `#44474e` |
+| `on-surface` | `#191c1e` | `#e1e2e4` |
+| `on-surface-variant` | `#454653` | `#c4c6cf` |
+| `on-background` | `#191c1e` | `#e1e2e4` |
+| `primary` | `#142b9a` | `#3245b1` |
+| `primary-container` | `#3245b1` | `#3245b1` |
+| `on-primary` | `#ffffff` | `#ffffff` |
+| `on-primary-container` | `#b7bfff` | `#dee0ff` |
+| `primary-fixed` | `#dee0ff` | `#dee0ff` |
+| `primary-fixed-dim` | `#bbc3ff` | `#bbc3ff` |
+| `inverse-primary` | `#bbc3ff` | `#142b9a` |
+| `secondary` | `#555c86` | `#bec3f4` |
+| `secondary-container` | `#c6ccfd` | `#3e446d` |
+| `on-secondary` | `#ffffff` | `#272e55` |
+| `on-secondary-container` | `#4f557f` | `#dee0ff` |
+| `tertiary` | `#642800` | `#ffb690` |
+| `tertiary-container` | `#883900` | `#ffb28a` |
+| `on-tertiary` | `#ffffff` | `#000000` |
+| `on-tertiary-container` | `#ffb28a` | `#341100` |
+| `outline` | `#757684` | `#8e9099` |
+| `outline-variant` | `#c5c5d5` | `#44474e` |
+| `inverse-surface` | `#2e3132` | `#e1e2e4` |
+| `inverse-on-surface` | `#f0f1f3` | `#191c1e` |
+| `surface-tint` | `#4154c0` | `#bbc3ff` |
+| `error` | `#ba1a1a` | `#ffb4ab` |
+| `error-container` | `#ffdad6` | `#93000a` |
+| `on-error` | `#ffffff` | `#690005` |
+| `on-error-container` | `#93000a` | `#ffdad6` |
+
+---
+
+## 9. Component Inventory
+
+| Page Section | Astro Component File | Route/Page |
+|---|---|---|
+| Base `<head>` meta | `src/components/BaseHead.astro` | All pages |
+| Top navigation bar | `src/components/NavBar.astro` | All pages |
+| Site footer | `src/components/Footer.astro` | All pages |
+| Hero (headline + phone mockup) | `src/components/HeroSection.astro` | `src/pages/index.astro` |
+| "Built for Serenity" stats | `src/components/SerenitySection.astro` | `src/pages/index.astro` |
+| "Every penny, accounted for" | `src/components/NarrativeSection.astro` | `src/pages/index.astro` |
+| "The Wallet in your Pocket" | `src/components/WalletSection.astro` | `src/pages/index.astro` |
+| "Trusted Presence" testimonials | `src/components/TestimonialsSection.astro` | `src/pages/index.astro` |
+| "Common Questions" FAQ | `src/components/FaqSection.astro` | `src/pages/index.astro` |
+| Final CTA | `src/components/CtaSection.astro` | `src/pages/index.astro` |
+| Base page layout | `src/layouts/Layout.astro` | All pages |
+
+---
 *End of Document*
