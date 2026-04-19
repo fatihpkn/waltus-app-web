@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
+import { env } from "cloudflare:workers";
 
 interface Props {
   title: string;
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const { title, description, image } = Astro.props;
-const openPanelClientId = import.meta.env.PUBLIC_OPENPANEL_CLIENT_ID?.trim();
+const openPanelClientId = env.PUBLIC_OPENPANEL_CLIENT_ID;
 ---
 
 <html lang="en">
